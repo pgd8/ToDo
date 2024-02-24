@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:todo/Shared_Components/add_task_form.dart';
 import 'package:todo/Shared_Components/field_label.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => AddTaskForm(),
+          );
           setState(() {});
         },
         child: const Icon(
@@ -46,9 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       extendBody: true,
-      body: Column(
-        children: [],
-      ),
+
     );
   }
 }
