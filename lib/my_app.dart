@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'ToDo',
+      title: 'To Do',
       theme: ThemeData(
           primaryColor: Colors.blue.shade700,
           scaffoldBackgroundColor: const Color(0xffDFECDB),
@@ -25,24 +25,20 @@ class MyApp extends StatelessWidget {
               showUnselectedLabels: false,
               selectedItemColor: Colors.blue,
               unselectedItemColor: Colors.grey),
-          bottomAppBarTheme: BottomAppBarTheme(
+          bottomAppBarTheme: const BottomAppBarTheme(
             shape: CircularNotchedRectangle(),
             color: Colors.white,
-            padding: const EdgeInsets.all(0),
+            padding: EdgeInsets.all(0),
           ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
               backgroundColor: Colors.blue.shade700,
               shape: const CircleBorder(
                   side: BorderSide(color: Colors.white, width: 2))),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue.shade700,
-            shape: ContinuousRectangleBorder(
-              borderRadius: BorderRadius.circular(20)
-            )
-          )
-        )
-      ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue.shade700,
+                  shape: ContinuousRectangleBorder(
+                      borderRadius: BorderRadius.circular(20))))),
       home: SplashScreen(),
       initialRoute: SplashScreen.routeName,
       routes: {
