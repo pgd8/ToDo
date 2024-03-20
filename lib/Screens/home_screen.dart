@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
+
 import 'package:flutter/material.dart';
 import 'package:todo/Shared_Components/add_task_form.dart';
-import 'package:todo/Shared_Components/field_label.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             context: context,
             builder: (context) => AddTaskForm(),
           );
