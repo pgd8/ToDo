@@ -12,12 +12,15 @@ class _AddTaskFormState extends State<AddTaskForm> {
   var formKey = GlobalKey<FormState>();
   var taskTitle = TextEditingController();
   var taskDescription = TextEditingController();
+  var selectedDate = DateTime.now;
+
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
       child: Padding(
-        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -82,18 +85,19 @@ class _AddTaskFormState extends State<AddTaskForm> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 3, left: 5, bottom: 5),
-              child: const Text(
-                'select date',
-                style: TextStyle(fontSize: 12),
+              child: InkWell(
+                onTap: () {},
+                child: const Text(
+                  'select date',
+                  style: TextStyle(fontSize: 12),
+                ),
               ),
             ),
             Container(
               margin: const EdgeInsets.only(bottom: 10),
               child: ElevatedButton(
                   onPressed: () {
-                    if (formKey.currentState!.validate()) {
-
-                    }
+                    if (formKey.currentState!.validate()) {}
                   },
                   child: const Text(
                     'Add Task',

@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-
 import 'package:flutter/material.dart';
 import 'package:todo/Shared_Components/add_task_form.dart';
+import 'package:todo/Tabs/tasks_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('To Do List'),
+        title: const Text('ToDo List'),
       ),
       bottomNavigationBar: BottomAppBar(
         notchMargin: 10,
@@ -29,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {});
             },
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Tasks'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.task_rounded), label: 'Tasks'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.settings), label: 'Tasks'),
             ]),
@@ -51,6 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       extendBody: true,
+      body: tabs[index],
     );
   }
+
+  List<Widget> tabs = [TasksTab(), Container()];
 }
