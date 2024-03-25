@@ -6,19 +6,22 @@ class SettingsTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 30,),
-        ElevatedButton(
+        SizedBox(
+          height: 30,
+        ),
+        Text("Change Language"),
+        TextButton(
           onPressed: () {
-            showModalBottomSheet(context: context,
-                builder:(context) {
-              return LanguageSheet();
-                },
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return LanguageSheet();
+              },
             );
           },
-          child: Text("Change Language"),
+          child: Text("choose"),
         ),
       ],
     );
   }
-
 }
