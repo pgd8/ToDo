@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         var provider = Provider.of<MyProvider>(context);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'To Do',
+          title: 'ToDo',
           theme: MyTheme.lightTheme,
           darkTheme: MyTheme.darkTheme,
           home: SplashScreen(),
