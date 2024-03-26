@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo/Shared_Components/add_task_form.dart';
+import 'package:todo/Tabs/settings_tab.dart';
 import 'package:todo/Tabs/tasks_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -56,5 +57,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> tabs = [TasksTab(), Container()];
+  List<Widget> tabs = [TasksTab(), SettingsTab()];
 }
