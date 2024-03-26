@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo/Shared_Components/field_label.dart';
 
 class AddTaskForm extends StatefulWidget {
@@ -16,6 +17,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return Form(
       key: formKey,
       child: Padding(
@@ -25,7 +27,8 @@ class _AddTaskFormState extends State<AddTaskForm> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              margin:
+                  EdgeInsets.symmetric(horizontal: 0.01.sw, vertical: 0.02.sh),
               child: const Text(
                 'Add New Task',
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -33,68 +36,71 @@ class _AddTaskFormState extends State<AddTaskForm> {
             ),
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              margin:
+                  EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.02.sh),
               child: TextFormField(
                 validator: (value) {
                   if (value == null || value == '') {
                     return "Pleas enter the task title";
                   }
                 },
-                style: const TextStyle(fontSize: 12, color: Colors.black),
+                style: TextStyle(fontSize: 12.sp, color: Colors.black),
                 decoration: InputDecoration(
                     isDense: true,
-                    errorStyle: TextStyle(fontSize: 10),
+                    errorStyle: TextStyle(fontSize: 11.sp),
                     label: FieldLabel('Task Title'),
                     errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         borderSide: BorderSide(color: Colors.red)),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     )),
               ),
             ),
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              margin:
+                  EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.02.sh),
               child: TextFormField(
                 validator: (value) {
                   if (value == null || value == '') {
                     return "Pleas enter the task description";
                   }
                 },
-                style: const TextStyle(fontSize: 12, color: Colors.black),
+                style: TextStyle(fontSize: 12.sp, color: Colors.black),
                 decoration: InputDecoration(
-                    errorStyle: TextStyle(fontSize: 10),
+                    errorStyle: TextStyle(fontSize: 10.sp),
                     isDense: true,
                     label: FieldLabel('Task Description'),
                     errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         borderSide: BorderSide(color: Colors.red)),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     )),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 3, left: 5),
+              margin: EdgeInsets.only(top: 0.01.sh, left: 0.03.sw),
               alignment: Alignment.centerLeft,
-              child: const Text(
+              child: Text(
                 'select date',
-                style: TextStyle(fontSize: 10),
+                style: TextStyle(fontSize: 10.sp),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 3, left: 5, bottom: 5),
+              margin:
+                  EdgeInsets.only(top: 0.01.sh, left: 0.02.sw, bottom: 0.01.sh),
               child: InkWell(
                 onTap: () {},
-                child: const Text(
+                child: Text(
                   'select date',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12.sp),
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(bottom: 10),
+              margin: EdgeInsets.only(bottom: 0.015.sh),
               child: ElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {}

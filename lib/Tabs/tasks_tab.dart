@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class TasksTab extends StatelessWidget {
@@ -9,19 +10,20 @@ class TasksTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return Column(
       children: [
         DatePicker(
           DateTime.now(),
           initialSelectedDate: DateTime.now(),
           dateTextStyle: TextStyle(
-            fontSize: 7,
+            fontSize: 8.sp,
           ),
           dayTextStyle: TextStyle(
-            fontSize: 7,
+            fontSize: 7.sp,
           ),
           monthTextStyle: TextStyle(
-            fontSize: 9,
+            fontSize: 9.sp,
             fontWeight: FontWeight.w500,
           ),
           daysCount: 365,
@@ -29,9 +31,9 @@ class TasksTab extends StatelessWidget {
           onDateChange: (date) {},
         ),
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          margin: EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.03.sh),
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(25)),
+              color: Colors.white, borderRadius: BorderRadius.circular(25.r)),
           child: Slidable(
             startActionPane: ActionPane(motion: DrawerMotion(), children: [
               SlidableAction(
@@ -39,9 +41,9 @@ class TasksTab extends StatelessWidget {
                 icon: Icons.delete,
                 onPressed: (context) {},
                 label: "Delete",
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(25),
-                    topLeft: Radius.circular(25)),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(25.r),
+                    topLeft: Radius.circular(25.r)),
               ),
               SlidableAction(
                 onPressed: (context) {},
@@ -53,7 +55,8 @@ class TasksTab extends StatelessWidget {
             child: ListTile(
               title: Text("Title"),
               trailing: Container(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 0.05.sw, vertical: 0.01.sh),
                 child: Icon(
                   Icons.done,
                   color: Colors.white,
@@ -61,12 +64,12 @@ class TasksTab extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.blue.shade700,
                     shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(18)),
+                    borderRadius: BorderRadius.circular(18.r)),
               ),
               subtitle: Text("description"),
               leading: Container(
                 color: Colors.blue,
-                width: 4,
+                width: 0.007.sw,
               ),
             ),
           ),

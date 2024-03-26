@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/My_App/my_theme.dart';
 import 'package:todo/Providers/my_provider.dart';
@@ -16,7 +17,7 @@ class LanguageSheet extends StatelessWidget {
           Text("Language"),
           Container(
             width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            margin: EdgeInsets.symmetric(horizontal: 0.05.sw, vertical: 0.01.sh),
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: provider.languageCode == "en"
@@ -35,7 +36,7 @@ class LanguageSheet extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            margin: EdgeInsets.symmetric(horizontal: 0.05.sw, vertical: 0.01.sh),
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: provider.languageCode == "ar"

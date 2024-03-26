@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo/Shared_Components/add_task_form.dart';
 import 'package:todo/Tabs/settings_tab.dart';
 import 'package:todo/Tabs/tasks_tab.dart';
@@ -17,12 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ToDo List'),
+        title: const Text('ToDo'),
       ),
       bottomNavigationBar: BottomAppBar(
-        notchMargin: 10,
+        notchMargin: 0.01.sh,
         child: BottomNavigationBar(
             currentIndex: index,
             onTap: (value) {
@@ -45,10 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
           );
           setState(() {});
         },
-        child: const Icon(
+        child: Icon(
           Icons.add,
           color: Colors.white,
-          size: 30,
+          size: 35.sp,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
