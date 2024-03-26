@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'ToDo',
+          themeMode: provider.mode,
           theme: MyTheme.lightTheme,
           darkTheme: MyTheme.darkTheme,
           home: SplashScreen(),
