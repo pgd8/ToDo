@@ -1,5 +1,4 @@
 // ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo/Shared_Components/field_label.dart';
@@ -11,9 +10,12 @@ class AddTaskForm extends StatefulWidget {
 
 class _AddTaskFormState extends State<AddTaskForm> {
   var formKey = GlobalKey<FormState>();
+
   var taskTitle = TextEditingController();
+
   var taskDescription = TextEditingController();
-  var selectedDate = DateTime.now;
+
+  DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
           children: [
             Container(
               margin:
-                  EdgeInsets.symmetric(horizontal: 0.01.sw, vertical: 0.02.sh),
+                  EdgeInsets.symmetric(horizontal: 0.01.sw, vertical: 0.01.sh),
               child: const Text(
                 'Add New Task',
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -37,8 +39,9 @@ class _AddTaskFormState extends State<AddTaskForm> {
             Container(
               width: double.infinity,
               margin:
-                  EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.02.sh),
+                  EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.01.sh),
               child: TextFormField(
+                controller: taskTitle,
                 validator: (value) {
                   if (value == null || value == '') {
                     return "Pleas enter the task title";
@@ -60,8 +63,9 @@ class _AddTaskFormState extends State<AddTaskForm> {
             Container(
               width: double.infinity,
               margin:
-                  EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.02.sh),
+                  EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.01.sh),
               child: TextFormField(
+                controller: taskDescription,
                 validator: (value) {
                   if (value == null || value == '') {
                     return "Pleas enter the task description";
@@ -92,15 +96,17 @@ class _AddTaskFormState extends State<AddTaskForm> {
               margin:
                   EdgeInsets.only(top: 0.01.sh, left: 0.02.sw, bottom: 0.01.sh),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  selectDate(context);
+                },
                 child: Text(
-                  'select date',
+                  selectedDate.toString().substring(0, 10),
                   style: TextStyle(fontSize: 12.sp),
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 0.015.sh),
+              margin: EdgeInsets.only(bottom: 0.011.sh),
               child: ElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {}
@@ -114,5 +120,18 @@ class _AddTaskFormState extends State<AddTaskForm> {
         ),
       ),
     );
+  }
+
+  selectDate(BuildContext context) async {
+    var chosenDate = await showDatePicker(
+      context: context,
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
+      initialDate: selectedDate,
+      currentDate: selectedDate,
+    );
+    if (chosenDate != null) {
+      selectedDate = chosenDate;
+    }
   }
 }

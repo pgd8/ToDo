@@ -53,7 +53,10 @@ class TasksTab extends StatelessWidget {
               ),
             ]),
             child: ListTile(
-              title: Text("Title"),
+              title: Text(
+                "Title",
+                style: TextStyle(fontSize: 14.sp),
+              ),
               trailing: Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: 0.05.sw, vertical: 0.01.sh),
@@ -66,7 +69,10 @@ class TasksTab extends StatelessWidget {
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(18.r)),
               ),
-              subtitle: Text("description"),
+              subtitle: Text(
+                "description",
+                style: TextStyle(fontSize: 11.sp),
+              ),
               leading: Container(
                 color: Colors.blue,
                 width: 0.007.sw,
